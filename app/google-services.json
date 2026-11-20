@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231283362555",
+    "project_id": "cerros-tour",
+    "storage_bucket": "cerros-tour.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231283362555:android:9c56b89ab8b12a80b23e5e",
+        "android_client_info": {
+          "package_name": "com.example.cerros_tour_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs1HvTA7mayp_XMXiEKwrC1A65jZHAhUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
