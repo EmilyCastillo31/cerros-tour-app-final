@@ -1,4 +1,3 @@
-
 package com.example.cerros_tour_app.ui.screens
 
 import androidx.compose.foundation.layout.*
@@ -14,13 +13,20 @@ import com.example.cerros_tour_app.ui.components.TourCard
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    onTourClick: (Int) -> Unit
+    onTourClick: (Int) -> Unit,
+    onProfileClick: () -> Unit = {} // [ROL 1] acceso al perfil
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text("Cerros Tour 🌿")
+                },
+                actions = {
+                    // [ROL 1] Botón para ir al perfil
+                    TextButton(onClick = onProfileClick) {
+                        Text("Mi perfil")
+                    }
                 }
             )
         }

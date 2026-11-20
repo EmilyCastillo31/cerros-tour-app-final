@@ -1,4 +1,3 @@
-
 package com.example.cerros_tour_app.ui.screens
 
 import androidx.compose.foundation.Image
@@ -19,7 +18,10 @@ import com.example.cerros_tour_app.data.Tour
 @Composable
 fun DetailScreen(
     tour: Tour,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    isFavorite: Boolean = false,              // [ROL 1] favoritos
+    onToggleFavorite: (() -> Unit)? = null,   // [ROL 1] favoritos
+    onBookClick: (() -> Unit)? = null         // botón para ir a la reserva
 ) {
     Scaffold(
         topBar = {
@@ -28,6 +30,18 @@ fun DetailScreen(
                 navigationIcon = {
                     TextButton(onClick = onBack) {
                         Text("Volver")
+                    }
+                },
+                actions = {
+                    // [ROL 1] Marcar o desmarcar como favorito
+                    if (onToggleFavorite != null) {
+                        TextButton(onClick = onToggleFavorite) {
+                            Text(
+                                text = if (isFavorite) "♥" else "♡",
+                                style = MaterialTheme.typography.headlineSmall,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
                     }
                 }
             )
@@ -116,6 +130,20 @@ fun DetailScreen(
                         modifier = Modifier.padding(16.dp),
                         style = MaterialTheme.typography.bodyLarge
                     )
+                }
+            }
+
+            if (onBookClick != null) {
+                item {
+                    Button(
+                        onClick = onBookClick,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text("Reservar este recorrido")
+                    }
                 }
             }
         }
